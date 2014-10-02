@@ -1,0 +1,29 @@
+trb_basics_viewhelper.content.helper = CONTENT
+trb_basics_viewhelper.content.helper {
+	table = tt_content
+	select {
+		orderBy = sorting
+		where.field = colPos
+		where.wrap = colPos =  |
+		languageField = sys_language_uid
+		pidInList.field = uid
+	}
+}
+
+trb_basics_viewhelper.content.render = COA
+trb_basics_viewhelper.content.render {
+	10 = COA
+	10 {
+		if.isTrue.numRows < trb_basics_viewhelper.content.helper
+		10 = COA
+		10 < trb_basics_viewhelper.content.helper
+	}
+
+	20 = COA
+	20 {
+		if.isFalse.numRows < trb_basics_viewhelper.content.helper
+		10 < trb_basics_viewhelper.content.helper
+		10.select.pidInList.field = fallback
+	}
+}
+trb_basics_viewhelper.content.helper >

@@ -1,0 +1,1 @@
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:trb_basics_viewhelper/Configuration/TypoScript/" extensions="constants">
